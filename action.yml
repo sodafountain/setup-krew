@@ -8,9 +8,6 @@ inputs:
 runs:
   using: 'composite'
   steps:
-    - name: "debug"
-      shell: bash
-      run: "ls -l"
     - name: "setup-krew"
       shell: bash
-      run: go run main.go -version ${{ inputs.krew-version }}
+      run: go run ${{ github.action_path }}/main.go -version ${{ inputs.krew-version }}
